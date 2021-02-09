@@ -1,0 +1,163 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    user-select: none;
+}
+.wrap {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    overflow: hidden;
+}
+.gray-blur-filter {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-image: url('./mzbg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: grayscale(1) blur(5px) brightness(.8);
+    transform: scale(1.1);
+}
+.container {
+    position: absolute;
+    top:0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 3;
+}
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+.photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+}
+.photo:hover >.photo-bg {
+    transform: scale(1.05);
+    transition: all .35s ease;
+}
+.photo:hover >.photo-bg>.profile-photo img {
+    transform: translateY( -.75rem);
+    transition: all .25s;
+}
+.photo-bg {
+    width: 25rem;
+    height: 25rem;
+    border-radius: 50%;
+    background: linear-gradient(
+        to right,
+        rgba(129, 87, 87, 0.5),
+        rgba(56, 78, 104, 0.6)
+    );
+    transition: all .25s;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, .3);
+}
+.profile-photo {
+    display: flex;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 50%;
+    transition: all .5s;
+    overflow: hidden;
+}
+.profile-photo img {
+    width: 55rem;
+    height: 55rem;
+    vertical-align: bottom;
+    margin-left: 1rem;
+    z-index: 1;
+}
+.hr-line {
+    margin: 2.5rem 0rem 1.5rem;
+    background-color: firebrick;
+    width: 25%;
+    height: 1px;
+}
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+.info .name span {
+    font-size: 4.5rem;
+}
+.info .description span {
+    font-size: 1.25rem;
+    font-weight: 300;
+    letter-spacing: 15px;
+}
+.scroll-lines {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+.scroll-lines .line1 {
+    width: 300px;
+    height: 5180px;
+    background-image: url('./mzrow.png');
+    background-size: contain;
+    background-repeat: repeat-y;
+    animation: slide1 60s linear infinite;
+    margin-left: 20px;
+    filter: grayscale(.7);
+}
+.scroll-lines .line2 {
+    width: 300px;
+    height: 5200px;
+    background-image: url('./mzrow2.png');
+    background-size: contain;
+    background-repeat: repeat-y;
+    animation: slide2 70s linear infinite;
+    margin-left: 20px;
+    filter: grayscale(.75);
+}
+.scroll-lines .line1:hover {
+    filter: grayscale(0);
+    transition: all .5s ease;
+}
+.scroll-lines .line2:hover {
+    filter: grayscale(0);
+    transition: all .5s ease;
+}
+@keyframes slide1 {
+    0%{
+        transform: translate3d(0, 0, 0);
+    }
+    100%{
+        transform: translate3d(0, -1295px, 0);
+    }
+}
+@keyframes slide2 {
+    0%{
+        transform: translate3d(0, 0, 0);
+    }
+    100%{
+        transform: translate3d(0, -1300px, 0);
+    }
+}
